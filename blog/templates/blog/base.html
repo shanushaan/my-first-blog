@@ -5,11 +5,9 @@
     <head>
 		<div class="page-header">
 			<h1><a href="/">My own blogger</a></h1>
-			<div class="post">
-				<p>published: {{ post.published_date }}</p>
-				<h1><a href="">{{ post.title }}</a></h1>
-				<p>{{ post.text|linebreaksbr }}</p>
-			</div>
+			{% if user.is_authenticated %}
+				<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+			{% endif %}
 		</div>
 		<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
